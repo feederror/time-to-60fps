@@ -3,3 +3,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		chrome.browserAction.setBadgeText({"text": request.text, tabId: sender.tab.id});
 	}
 });
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+  chrome.tabs.executeScript({
+    code: 'location.reload()'
+  });
+});
